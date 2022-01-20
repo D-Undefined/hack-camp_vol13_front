@@ -1,6 +1,7 @@
 import FirebaseAuth from "@/handler/firebase/auth"
 import { login } from "@/redux/slices/user"
 import type { NextPage } from "next"
+import Link from "next/link"
 import { useDispatch } from "react-redux"
 
 const Home: NextPage = () => {
@@ -17,6 +18,9 @@ const Home: NextPage = () => {
     <div className="p-24">
       <div>
         <a href="./profile">profile</a>
+        <Link href="/discussion/1">
+          <a>discussion page</a>
+        </Link>
       </div>
       <button onClick={clicked} className="bg-violet-200 rounded">button</button>
       {/* <p>{user}</p> */}

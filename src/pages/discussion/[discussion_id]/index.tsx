@@ -2,11 +2,16 @@ import { DiscussionCard } from "@/components/atoms/discussionCard"
 import { AppContainer } from "@/components/layout/AppContainer"
 import { NextPage } from "next"
 
+
 const DiscussionPage: NextPage = () => {
   return (
-    <div>
+    <div className="min-h-screen bg-violet-50">
       <AppContainer>
-        <DiscussionCard content="hoge"/>
+        <h1 className="mb-10 text-3xl font-bold">discussion タイトル</h1>
+        <DiscussionCard content="Lorem ipsum dolor sit amet consectetur."/>
+        <DiscussionCard content="Lorem ipsum dolor sit amet consectetur."/>
+        <DiscussionCard content="Lorem ipsum dolor sit amet consectetur."/>
+        <DiscussionCard content="Lorem ipsum dolor sit amet consectetur."/>
       </AppContainer>
     </div>
   )

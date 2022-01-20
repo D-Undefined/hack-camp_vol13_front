@@ -15,6 +15,9 @@ const Home: NextPage = () => {
   }
   return (
     <div className="p-24">
+      <div>
+        <a href="./profile">profile</a>
+      </div>
       <button onClick={clicked} className="bg-violet-200 rounded">button</button>
       {/* <p>{user}</p> */}
     </div>

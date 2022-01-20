@@ -9,3 +9,6 @@ npm run dev
 # or
 yarn dev
 ```
+
+Recoil 記事
+https://engineering.linecorp.com/ja/blog/line-sec-frontend-using-recoil-to-get-a-safe-and-comfortable-state-management/

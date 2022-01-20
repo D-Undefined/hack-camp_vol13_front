@@ -1,16 +1,22 @@
 import FirebaseAuth from "@/handler/firebase/auth"
+import { login } from "@/redux/slices/user"
 import type { NextPage } from "next"
-import { firebaseClient } from "../handler/firebase/client"
+import { useDispatch } from "react-redux"
 
 const Home: NextPage = () => {
-  const clicked = () => {
-    const fbApp = firebaseClient()
-    const fbAuth = new FirebaseAuth(fbApp)
-    fbAuth.githubLogin()
+  const FBAuth = new FirebaseAuth()
+
+  const dispatch = useDispatch()
+  const clicked = async() => {
+    const githubUser = await FBAuth.githubLogin()
+    if (githubUser) {
+      dispatch(login(githubUser))  
+    }
   }
   return (
     <div className="p-24">
       <button onClick={clicked} className="bg-violet-200 rounded">button</button>
+      {/* <p>{user}</p> */}
     </div>
   )
 }

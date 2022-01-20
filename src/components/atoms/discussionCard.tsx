@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { FC } from "react"
+import { BsChatText } from "react-icons/bs"
 import { VoteBtn } from "./voteBtn"
 
 interface IProps  {
@@ -20,6 +21,7 @@ export const DiscussionCard: FC<IProps> = ({content}) => {
               <span className="px-1 font-bold text-gray-600">  •  </span>
               <p>3 日前</p>
               <span className="px-1 font-bold text-gray-600">  •  </span>
+              <BsChatText className="mx-1"/>
               <p className="cursor-pointer">リプライ</p>
             </span>
             <div className="py-4 text-sm text-gray-500">

@@ -1,4 +1,5 @@
 import { DiscussionCard } from "@/components/atoms/discussionCard"
+import { DiscussionForm } from "@/components/atoms/discussionForm"
 import { AppContainer } from "@/components/layout/AppContainer"
 import { NextPage } from "next"
 
@@ -12,6 +13,7 @@ const DiscussionPage: NextPage = () => {
         <DiscussionCard content="Lorem ipsum dolor sit amet consectetur."/>
         <DiscussionCard content="Lorem ipsum dolor sit amet consectetur."/>
         <DiscussionCard content="Lorem ipsum dolor sit amet consectetur."/>
+        <DiscussionForm/>
       </AppContainer>
     </div>
   )

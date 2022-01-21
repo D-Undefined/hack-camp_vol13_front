@@ -1,5 +1,6 @@
 import { SecDiscussion } from "@/components/pages/SecDiscussion"
 import { SecHero } from "@/components/pages/SecHero"
+import { SecRankings } from "@/components/pages/SecRankings"
 import FirebaseAuth from "@/handler/firebase/auth"
 import { login } from "@/redux/slices/user"
 import type { NextPage } from "next"
@@ -17,9 +18,10 @@ const Home: NextPage = () => {
     }
   }
   return (
-    <div>
-      <SecHero className="my-20"/>
+    <div className="my-20 space-y-20">
+      <SecHero/>
       <SecDiscussion/>
+      <SecRankings/>
       <div>
         <a href="./profile">profile</a>
         <Link href="/discussion/1">

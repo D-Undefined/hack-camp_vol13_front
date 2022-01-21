@@ -1,6 +1,7 @@
 import { AppContainer } from "@/components/layout/AppContainer"
 import { FC } from "react"
 import { FaMedal } from "react-icons/fa"
+import { GiDiamondTrophy } from "react-icons/gi"
 
 export const SecMedal: FC = () => {
   return (
@@ -8,8 +9,9 @@ export const SecMedal: FC = () => {
       <AppContainer>
         <div className="grid grid-cols-2 col-span-2 gap-6">
           <div className="rounded border border-gray-200">
-            <div className="py-2 px-5 bg-purple-100">
+            <div className="flex items-center py-2 px-5 bg-gray-100">
               <h4 className="text-gray-600">Thread Master</h4>
+              <GiDiamondTrophy className="ml-auto text-5xl text-cyan-500"/>
             </div>
             <div className="flex justify-center items-center h-12 border-b border-gray-200">
               Unranked
@@ -30,8 +32,9 @@ export const SecMedal: FC = () => {
             </div>
           </div>
           <div className="rounded border border-gray-200">
-            <div className="py-2 px-5 bg-purple-100">
-              <h4 className="text-gray-600">Discussion Master</h4>
+            <div className="flex items-center py-2 px-5 bg-gray-100">
+              <h4 className="text-gray-600">Thread Master</h4>
+              <GiDiamondTrophy className="ml-auto text-5xl text-cyan-500"/>
             </div>
             <div className="flex justify-center items-center h-12 border-b border-gray-200">
               Unranked

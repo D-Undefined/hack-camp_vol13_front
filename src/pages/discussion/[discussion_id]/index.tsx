@@ -6,7 +6,7 @@ import { NextPage } from "next"
 
 const DiscussionPage: NextPage = () => {
   return (
-    <div className="py-16 min-h-screen bg-violet-50">
+    <div className="py-16 min-h-screen bg-fuchsia-50">
       <AppContainer>
         <h1 className="mb-10 text-3xl font-bold">discussion タイトル</h1>
         <DiscussionCard content="Lorem ipsum dolor sit amet consectetur."/>

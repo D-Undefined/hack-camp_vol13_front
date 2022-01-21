@@ -1,3 +1,4 @@
+import { AppFooter } from "@/components/layout/AppFooter"
 import { AppHeader } from "@/components/layout/AppHeader"
 import { store } from "@/redux/store"
 import "@/styles/global.css"
@@ -10,6 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Provider store={store}>
       <AppHeader/>
       <Component {...pageProps} />
+      <AppFooter/>
     </Provider>
   )
 }

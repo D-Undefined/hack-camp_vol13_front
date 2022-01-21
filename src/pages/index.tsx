@@ -1,3 +1,5 @@
+import { SecDiscussion } from "@/components/pages/SecDiscussion"
+import { SecHero } from "@/components/pages/SecHero"
 import FirebaseAuth from "@/handler/firebase/auth"
 import { login } from "@/redux/slices/user"
 import type { NextPage } from "next"
@@ -15,7 +17,9 @@ const Home: NextPage = () => {
     }
   }
   return (
-    <div className="p-24">
+    <div>
+      <SecHero className="my-20"/>
+      <SecDiscussion/>
       <div>
         <a href="./profile">profile</a>
         <Link href="/discussion/1">
@@ -23,7 +27,6 @@ const Home: NextPage = () => {
         </Link>
       </div>
       <button onClick={clicked} className="bg-violet-200 rounded">button</button>
-      {/* <p>{user}</p> */}
     </div>
   )
 }

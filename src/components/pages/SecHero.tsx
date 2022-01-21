@@ -1,14 +1,27 @@
 import { AppContainer } from "@/components/layout/AppContainer"
+import FirebaseAuth from "@/handler/firebase/auth"
+import { login } from "@/redux/slices/user"
 import Image from "next/image"
 import { FC } from "react"
 import { BsGithub } from "react-icons/bs"
 import { MdOutlineDeviceUnknown } from "react-icons/md"
+import { useDispatch } from "react-redux"
 
 interface IProps {
   className?: string
 }
 
 export const SecHero: FC<IProps> = ({className}) => {
+  const FBAuth = new FirebaseAuth()
+
+  const dispatch = useDispatch()
+  const clicked = async() => {
+    const githubUser = await FBAuth.githubLogin()
+    if (githubUser) {
+      dispatch(login(githubUser))  
+    }
+  }
+
   return (
     <div className={className}>
       <AppContainer>
@@ -20,7 +33,7 @@ export const SecHero: FC<IProps> = ({className}) => {
               <p>あなたの今日の疑問は明日の誰かのアイデアへとつながるでしょう。</p>
             </div>
             <div className="py-10 mx-auto w-full">
-              <button className="flex justify-center items-center p-3 mx-auto w-52 font-semibold tracking-wider text-white bg-gray-800 rounded-md hover:opacity-80 duration-500">
+              <button onClick={clicked} className="flex justify-center items-center p-3 mx-auto w-52 font-semibold tracking-wider text-white bg-gray-800 rounded-md hover:opacity-80 duration-500">
                 <BsGithub className="mr-1"/>
                 Github でログイン
               </button>
@@ -32,7 +45,6 @@ export const SecHero: FC<IProps> = ({className}) => {
           </div>
           <Image className="inline-block" src="/home-hero.svg" alt="ヒーロー画像" width={800} height={800}/>
         </div>
-        {/* <p>{user}</p> */}
       </AppContainer>
     </div>
   )

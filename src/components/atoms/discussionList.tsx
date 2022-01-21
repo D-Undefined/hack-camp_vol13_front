@@ -11,9 +11,9 @@ export const DiscussionList: FC<IProps> = ({className}) => {
     <div className={className}>
       <div className="flex items-center py-2 px-3 w-full">
         <Avatar className="mx-3"/>
-        <div className="w-full text-sm">
+        <div className="w-full text-xl">
           <p className="mb-1 font-semibold tracking-normal">discussion タイトル</p>
-          <p className="text-xs text-gray-400">
+          <p className="text-sm text-gray-400">
             かずやん
             <span className="px-1 font-bold text-gray-600">  •  </span>
             最終投稿 1分前

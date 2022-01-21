@@ -14,8 +14,8 @@ export const SecHero: FC<IProps> = ({className}) => {
       <AppContainer>
         <div className="flex pb-16 border-b-2 border-fuchsia-200">
           <div className="px-10 w-full">
-            <h1 className="text-3xl font-bold">Share your Idea.</h1>
-            <div className="mt-6 text-sm">
+            <h1 className="text-4xl font-bold">Share your Idea.</h1>
+            <div className="mt-6 text-lg">
               <p>Engineer Board（仮）はふとしたアイデアをシェア・議論できるエンジニア向けの SNS です。</p>
               <p>あなたの今日の疑問は明日の誰かのアイデアへとつながるでしょう。</p>
             </div>
@@ -30,7 +30,7 @@ export const SecHero: FC<IProps> = ({className}) => {
               </button>
             </div>
           </div>
-          <Image className="inline-block" src="/home-hero.svg" alt="ヒーロー画像" width={600} height={600}/>
+          <Image className="inline-block" src="/home-hero.svg" alt="ヒーロー画像" width={800} height={800}/>
         </div>
         {/* <p>{user}</p> */}
       </AppContainer>

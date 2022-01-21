@@ -8,7 +8,7 @@ interface IProps {
 export const Avatar: FC<IProps> = ({className}) => {
   return (
     <div className={className}>
-      <Image className="rounded-full" width={40} height={40} src="https://placehold.jp/100x100.png" alt="icon"/>
+      <Image className="rounded-full" width={60} height={60} src="https://placehold.jp/100x100.png" alt="icon"/>
     </div>
   )
 }

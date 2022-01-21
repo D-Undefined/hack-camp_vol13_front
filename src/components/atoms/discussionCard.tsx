@@ -16,7 +16,7 @@ export const DiscussionCard: FC<IProps> = ({content}) => {
       <div className="py-2 px-4 w-full bg-white rounded border border-gray-200">
         <span className="flex">
           <div className="w-full">
-            <span className="flex text-xs text-gray-400">
+            <span className="flex text-sm text-gray-400">
               <p className="text-gray-600">かずやん</p>
               <span className="px-1 font-bold text-gray-600">  •  </span>
               <p>3 日前</p>
@@ -24,7 +24,7 @@ export const DiscussionCard: FC<IProps> = ({content}) => {
               <BsChatText className="mx-1"/>
               <p className="cursor-pointer">リプライ</p>
             </span>
-            <div className="py-4 text-sm leading-relaxed text-gray-500">
+            <div className="py-4 text-lg leading-relaxed text-gray-500">
               <p>{content}</p>
             </div>
           </div>

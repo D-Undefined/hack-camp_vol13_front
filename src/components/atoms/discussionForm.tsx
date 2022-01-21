@@ -15,7 +15,7 @@ export const DiscussionForm: FC = () => {
       <span className="mx-4">
         <Avatar/>
       </span>
-      <div className="py-10 px-4 w-full text-sm text-gray-500 bg-white rounded-sm border border-gray-200">
+      <div className="py-10 px-4 w-full text-lg text-gray-500 bg-white rounded-sm border border-gray-200">
         <textarea
           onChange={e => setInputText(e.target.value)}
           className="p-3 w-full rounded-sm border border-gray-200 focus:outline-2 focus:outline-fuchsia-500 focus:outline" 
@@ -23,9 +23,9 @@ export const DiscussionForm: FC = () => {
           rows={calcTextAreaHeight(inputText)}
         ></textarea>
         <span className="flex mt-3">
-          <p className="text-xs text-gray-400">投稿は反映後、掲載されます</p>
+          <p className="text-sm text-gray-400">投稿は反映後、掲載されます</p>
           <button 
-            className="py-2 px-4 ml-auto font-bold tracking-wider text-center text-white bg-fuchsia-600 rounded-3xl hover:shadow-xl duration-500 cursor-pointer"
+            className="py-2 px-4 ml-auto font-bold tracking-wider text-center text-white bg-fuchsia-600 rounded-3xl hover:opacity-70 duration-500 cursor-pointer"
           >
             投稿する
           </button>

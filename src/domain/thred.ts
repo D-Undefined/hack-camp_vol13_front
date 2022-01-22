@@ -8,5 +8,5 @@ export interface IThread {
   user_id: string,
   created_at: string,
   comment_cnt: number,
-  comments: IComment[]
+  comments: IComment[] | null
 }

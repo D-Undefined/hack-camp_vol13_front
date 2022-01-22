@@ -17,10 +17,15 @@ export const AppHeader: FC = () => {
       <AppContainer>
         <div className="flex items-center h-full">
           <Link href="/">
-            <h2 className="text-xl cursor-pointer">Engineer Board (仮名)</h2>
+            <a>
+              <h2 className="text-xl cursor-pointer">Engineer Board (仮名)</h2>
+            </a>
+          </Link>
+          <Link href="/discussion">
+            <a className="ml-auto hover:opacity-80 duration-500 cursor-pointer">Discussion</a>
           </Link>
           <Link href="/rankings">
-            <a className="ml-auto hover:opacity-80 duration-500 cursor-pointer">Rankings</a>
+            <a className="mx-6 hover:opacity-80 duration-500 cursor-pointer">Rankings</a>
           </Link>
           <Link href="/profile">
             <a>

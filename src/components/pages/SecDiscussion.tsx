@@ -1,4 +1,3 @@
-import { DiscussionList } from "@/components/atoms/discussionList"
 import { FC } from "react"
 import { ImFire } from "react-icons/im"
 import { AppContainer } from "../layout/AppContainer"
@@ -16,12 +15,13 @@ export const SecDiscussion: FC<IProps> = ({className}) => {
           Hot Discussions
         </h3>
         <div className="divide-y">
+          {/* TODO Discussion list 実装 */}
+          {/* <DiscussionList/>
           <DiscussionList/>
           <DiscussionList/>
           <DiscussionList/>
           <DiscussionList/>
-          <DiscussionList/>
-          <DiscussionList/>
+          <DiscussionList/> */}
         </div>
       </AppContainer>
     </div>

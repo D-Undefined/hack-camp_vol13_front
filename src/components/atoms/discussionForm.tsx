@@ -1,14 +1,35 @@
+import { IUser } from "@/domain/user"
+import { CommentAPI } from "@/handler/api/comment"
+import { userSelector } from "@/redux/selectors/user"
 import { FC, useState } from "react"
+import { useSelector } from "react-redux"
 import { Avatar } from "./avatar"
 
-export const DiscussionForm: FC = () => {
+interface IProps {
+  thread_id: number | undefined,
+  LoadThread(discussionId: number): void
+}
+
+export const DiscussionForm: FC<IProps> = ({thread_id, LoadThread}) => {
+  const [inputText, setInputText] = useState("")
+  const [user, setUser] = useState<IUser>(useSelector(userSelector))
+
   // textarea の文字を取得し, 行数を計算する
   const calcTextAreaHeight = (inputText: string) => {
     const rowsNum = inputText.split('\n').length
     return rowsNum
   }
 
-  const [inputText, setInputText] = useState("")
+  // コメント作成
+  const createComment = async() => {
+    if(!thread_id) {
+      console.error("invalid thread id")
+      return
+    }
+    await CommentAPI.postComment({thread_id: thread_id, uid: user.uid, body: inputText})
+    await LoadThread(thread_id)
+  }
+
 
   return (
     <div className="flex">
@@ -26,6 +47,7 @@ export const DiscussionForm: FC = () => {
           <p className="text-sm text-gray-400">投稿は反映後、掲載されます</p>
           <button 
             className="py-2 px-4 ml-auto font-bold tracking-wider text-center text-white bg-fuchsia-600 rounded-3xl hover:opacity-70 duration-500 cursor-pointer"
+            onClick={createComment}
           >
             投稿する
           </button>

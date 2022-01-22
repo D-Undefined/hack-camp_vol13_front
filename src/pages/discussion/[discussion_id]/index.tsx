@@ -14,15 +14,18 @@ const DiscussionPage: NextPage = () => {
   const [thread, setThread] = useState<IThread>(initThread)
   const router = useRouter()
   const discussionId = router.query.discussion_id
-
+  
+  const LoadThread = async(discussionId: number) => {
+    const thread = await ThreadAPI.getThreadByID({id: `${discussionId}`})
+    setThread(thread)
+  }
+  
   useEffect(() => {
     (async() => {
-      if(discussionId) {
-        const thread = await ThreadAPI.getThreadByID({id: `${discussionId}`})
-        setThread(thread)
-      }
+      const thread = await ThreadAPI.getThreadByID({id: `${discussionId}`})
+      setThread(thread)
     })()
-  }, [discussionId])
+  }, [discussionId, setThread])
 
   return (
     <div className="py-16 min-h-screen bg-fuchsia-50">
@@ -31,7 +34,8 @@ const DiscussionPage: NextPage = () => {
         {thread.Comments.map((comment, idx) => (
           <DiscussionCard key={idx} comment={comment}/>
         ))}
-        <DiscussionForm/>
+        {/* discussionId が正しくセットされているかcheck */}
+        <DiscussionForm LoadThread={LoadThread} thread_id={parseInt(`${discussionId}`)}/>
       </AppContainer>
     </div>
   )

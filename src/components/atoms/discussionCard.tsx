@@ -1,4 +1,5 @@
 import { IComment } from "@/domain/comment"
+import { fromNow } from "@/handler/utils"
 import { FC } from "react"
 import { BsChatText } from "react-icons/bs"
 import { Avatar } from "./avatar"
@@ -20,7 +21,7 @@ export const DiscussionCard: FC<IProps> = ({comment}) => {
             <span className="flex text-sm text-gray-400">
               <p className="text-gray-600">kazuyan</p>
               <span className="px-1 font-bold text-gray-600">  •  </span>
-              <p>3 日前</p>
+              <p>{fromNow(comment.created_at)}</p>
               <span className="px-1 font-bold text-gray-600">  •  </span>
               <BsChatText className="mx-1"/>
               <p className="cursor-pointer">リプライ</p>
@@ -30,7 +31,7 @@ export const DiscussionCard: FC<IProps> = ({comment}) => {
             </div>
           </div>
           <div className="flex items-center">
-            <VoteBtn/>
+            <VoteBtn vote_cnt={comment.vote_cnt}/>
           </div>
         </span>
       </div>

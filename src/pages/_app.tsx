@@ -6,6 +6,7 @@ import "@/styles/global.css"
 import type { AppProps } from "next/app"
 import { Provider, useDispatch } from "react-redux"
 import "tailwindcss/tailwind.css"
+import "../styles/bubble.css"
 
 
 function MyApp({ Component, pageProps }: AppProps) {

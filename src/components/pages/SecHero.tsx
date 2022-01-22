@@ -7,6 +7,7 @@ import { FC } from "react"
 import { BsGithub } from "react-icons/bs"
 import { MdOutlineDeviceUnknown } from "react-icons/md"
 import { useDispatch } from "react-redux"
+import {Bubble} from "@/components/atoms/bubble"
 
 interface IProps {
   className?: string
@@ -29,7 +30,8 @@ export const SecHero: FC<IProps> = ({className}) => {
   return (
     <div className={className}>
       <AppContainer>
-        <div className="flex pb-16 border-b-2 border-fuchsia-200">
+        <Bubble></Bubble>
+        <div className="flex pb-16 border-b-2 border-fuchsia-200 pointer-events-none z-10 relative">
           <div className="px-10 w-full">
             <h1 className="text-4xl font-bold">Share your Idea.</h1>
             <div className="mt-6 text-lg">

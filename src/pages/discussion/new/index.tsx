@@ -2,7 +2,7 @@ import { Avatar } from "@/components/atoms/avatar"
 import { AppContainer } from "@/components/layout/AppContainer"
 import { IUser } from "@/domain/user"
 import { ThreadAPI } from "@/handler/api/thread"
-import { IThreadParams } from "@/interface/handler/api/thread"
+import { IParamCreateThread } from "@/interface/handler/api/thread"
 import { userSelector } from "@/redux/selectors/user"
 import { NextPage } from "next"
 import { useRouter } from "next/router"
@@ -14,7 +14,7 @@ const DiscussionNew: NextPage = () => {
   const router = useRouter()
 
   const createThread = async() => {
-    const params: IThreadParams = {
+    const params: IParamCreateThread = {
       uid: user.uid,
       name: "テストスレッド"
     }

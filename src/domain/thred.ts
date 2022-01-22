@@ -4,9 +4,9 @@ export interface IThread {
   id: number,
   name: string,
   vote_cnt: number,
-  vote: null,
+  Vote: null,
   user_id: string,
   created_at: string,
   comment_cnt: number,
-  comments: IComment[] | null
+  Comments: IComment[]
 }

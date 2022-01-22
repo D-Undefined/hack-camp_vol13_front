@@ -31,9 +31,6 @@ const DiscussionPage: NextPage = () => {
         {thread.Comments.map((comment, idx) => (
           <DiscussionCard key={idx} comment={comment}/>
         ))}
-        {/* <DiscussionCard content="Lorem ipsum dolor sit amet consectetur."/>
-        <DiscussionCard content="Lorem ipsum dolor sit amet consectetur."/>
-        <DiscussionCard content="Lorem ipsum dolor sit amet consectetur."/> */}
         <DiscussionForm/>
       </AppContainer>
     </div>

@@ -1,7 +1,7 @@
 import { DiscussionList } from "@/components/atoms/discussionList"
 import { IThread } from "@/domain/thred"
 import { ThreadAPI } from "@/handler/api/thread"
-import { createRouter, Router, useRouter } from "next/router"
+import { useRouter } from "next/router"
 import { FC, useEffect, useState } from "react"
 import { GoCommentDiscussion } from "react-icons/go"
 import { AppContainer } from "../../layout/AppContainer"
@@ -36,12 +36,9 @@ export const SecDiscussions: FC<IProps> = ({className}) => {
           </button>
         </div>
         <div className="divide-y">
-          <DiscussionList/>
-          <DiscussionList/>
-          <DiscussionList/>
-          <DiscussionList/>
-          <DiscussionList/>
-          <DiscussionList/>
+          {threads.map((thread, key) => (
+            <DiscussionList key={key} thread={thread}/>
+          ))}
         </div>
       </AppContainer>
     </div>

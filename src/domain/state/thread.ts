@@ -5,7 +5,7 @@ export const initThread: IThread = {
   name: "",
   vote_cnt: 0,
   Vote: null,
-  user_id: "",
+  uid: "",
   created_at: "",
   comment_cnt: 0,
   Comments: []

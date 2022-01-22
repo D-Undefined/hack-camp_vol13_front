@@ -17,7 +17,7 @@ export const SecDiscussions: FC<IProps> = ({className}) => {
   // スレッド一覧を取得
   useEffect(() => {
     (async () => {
-      const threads = await ThreadAPI.getThreads()
+      const threads = await ThreadAPI.getAllThreads()
       setThreads(threads)
     })()
   }, [])

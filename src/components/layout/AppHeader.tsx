@@ -1,9 +1,17 @@
 import { Avatar } from "@/components/atoms/avatar"
+import { loadUserFromStorage, login } from "@/redux/slices/user"
 import Link from "next/link"
-import { FC } from "react"
+import { FC, useEffect } from "react"
+import { useDispatch } from "react-redux"
 import { AppContainer } from "./AppContainer"
 
 export const AppHeader: FC = () => {
+  // ストレージから読み出す
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(login(loadUserFromStorage()))
+  })
+  
   return (
     <section className="h-16 text-white bg-gray-800">
       <AppContainer>

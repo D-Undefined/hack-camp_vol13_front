@@ -13,15 +13,32 @@ const initUserState: IUser = {
   threads: []
 }
 
+const saveToLocalStorage = (data: Object) => {
+  localStorage.setItem("userInfo", JSON.stringify(data))
+}
+
 const userSlice = createSlice({
   name: "user",
   initialState: initUserState,
   reducers: {
     login: (state, action: PayloadAction<IUser>) => {
       Object.assign(state, {...action.payload})
+      saveToLocalStorage(state)
     },
   }
 })
+
+
+// ユーザー情報をストレージから読み取る
+export const loadUserFromStorage = () => {
+  if(localStorage) {
+    const savedUser = localStorage.getItem("userInfo")
+    if (savedUser) {
+      return JSON.parse(savedUser)
+    }
+  }
+  return null
+}
 
 
 export const {login} = userSlice.actions

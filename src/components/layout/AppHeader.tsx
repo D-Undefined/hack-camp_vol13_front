@@ -5,7 +5,7 @@ import { AppContainer } from "./AppContainer"
 
 export const AppHeader: FC = () => {
   return (
-    <section className="h-16 text-white bg-gray-800">
+    <section className="h-16 text-white bg-gray-800 z-10 relative">
       <AppContainer>
         <div className="flex items-center h-full">
           <Link href="/">

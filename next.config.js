@@ -13,6 +13,10 @@ module.exports = {
   images: {
     domains: ['placehold.jp'],
   },
+  publicRuntimeConfig: {
+    // Will be available on both server and client
+    API_BASE_URL: process.env.NEXT_API_BASE_URL,
+  },
   nextConfig
 }
 

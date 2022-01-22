@@ -2,6 +2,7 @@ import { AppContainer } from "@/components/layout/AppContainer"
 import FirebaseAuth from "@/handler/firebase/auth"
 import { login } from "@/redux/slices/user"
 import Image from "next/image"
+import { useRouter } from "next/router"
 import { FC } from "react"
 import { BsGithub } from "react-icons/bs"
 import { MdOutlineDeviceUnknown } from "react-icons/md"
@@ -15,10 +16,13 @@ export const SecHero: FC<IProps> = ({className}) => {
   const FBAuth = new FirebaseAuth()
 
   const dispatch = useDispatch()
+  const router = useRouter()
+
   const clicked = async() => {
     const githubUser = await FBAuth.githubLogin()
     if (githubUser) {
-      dispatch(login(githubUser))  
+      dispatch(login(githubUser))
+      router.push(`/profile/${githubUser.uid}`)
     }
   }
 

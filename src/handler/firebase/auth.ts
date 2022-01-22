@@ -1,10 +1,11 @@
 import { firebaseClient } from '@/handler/firebase/client'
-import { ICredential, IGithubUserDTO } from '@/interface/handler/firebase/auth'
+import { FirebaseAuthImpl, ICredential, IGithubUserDTO } from '@/interface/handler/firebase/auth'
 import { FirebaseApp } from 'firebase/app'
 import { getAuth, GithubAuthProvider, signInWithPopup, UserInfo } from 'firebase/auth'
+import { UsersAPI } from '../api/user'
 
 
-export default class FirebaseAuth {
+export default class FirebaseAuth implements FirebaseAuthImpl{
   private readonly _fbApp: FirebaseApp
 
   constructor() {
@@ -24,13 +25,13 @@ export default class FirebaseAuth {
 
       const githubUserDTO: IGithubUserDTO = {
         uid: githubUser.uid,
-        displayName: githubUser.displayName || "",
-        email: githubUser.email || "",
-        photoURL: githubUser.photoURL || ""
+        github: githubUser.displayName || "",
+        user_name: githubUser.displayName || "",
+        image_url: githubUser.photoURL || ""
       }
+      
+      return await UsersAPI.postLogin(githubUserDTO)
 
-      // TODO ここに ユーザーを DB に保存
-      return githubUserDTO
     }
     return null
 

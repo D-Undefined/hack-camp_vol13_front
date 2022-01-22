@@ -4,7 +4,11 @@ export interface ICredential {
 
 export interface IGithubUserDTO {
   uid: string,
-  displayName: string,
-  email: string,
-  photoURL: string,
+  user_name: string,
+  github: string,
+  image_url: string,
+}
+
+export interface FirebaseAuthImpl {
+  githubLogin(): Promise<IGithubUserDTO | null>
 }

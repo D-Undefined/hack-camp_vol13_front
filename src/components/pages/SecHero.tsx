@@ -39,11 +39,11 @@ export const SecHero: FC<IProps> = ({className}) => {
               <p>あなたの今日の疑問は明日の誰かのアイデアへとつながるでしょう。</p>
             </div>
             <div className="py-10 mx-auto w-full">
-              <button onClick={clicked} className="flex justify-center items-center p-3 mx-auto w-52 font-semibold tracking-wider text-white bg-gray-800 rounded-md hover:opacity-80 duration-500">
+              <button onClick={clicked} className="flex justify-center items-center p-3 mx-auto w-52 font-semibold tracking-wider text-white bg-gray-800 rounded-md hover:opacity-80 duration-500 pointer-events-auto">
                 <BsGithub className="mr-1"/>
                 Github でログイン
               </button>
-              <button className="flex justify-center items-center p-3 mx-auto mt-6 w-52 font-semibold tracking-wider text-fuchsia-600 hover:text-white bg-white hover:bg-fuchsia-600 rounded-md border-2 border-fuchsia-600 duration-500">
+              <button className="flex justify-center items-center p-3 mx-auto mt-6 w-52 font-semibold tracking-wider text-fuchsia-600 hover:text-white bg-white hover:bg-fuchsia-600 rounded-md border-2 border-fuchsia-600 duration-500 pointer-events-auto">
                 <MdOutlineDeviceUnknown className="mr-1"/>
                 匿名で参加する
               </button>

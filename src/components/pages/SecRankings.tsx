@@ -18,7 +18,6 @@ export const SecRankings: FC<IProps> = ({className}) => {
     (async () => {
       const rankings = await RankingAPI.getUserRanking()
       setRankings(rankings)
-      console.log("##@",rankings)
     })()
   }, [])
 

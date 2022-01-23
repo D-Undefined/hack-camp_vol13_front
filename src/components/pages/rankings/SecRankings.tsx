@@ -7,12 +7,10 @@ import { RankingAPI } from "@/handler/api/ranking"
 export const SecRankings: FC = () => {
   const [rankings, setRankings] = useState<IUser[]>([])
 
-  // スレッド一覧を取得
   useEffect(() => {
     (async () => {
       const rankings = await RankingAPI.getUserRanking()
       setRankings(rankings)
-      console.log("##@",rankings)
     })()
   }, [])
 

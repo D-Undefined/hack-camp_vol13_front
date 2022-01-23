@@ -14,17 +14,17 @@ export const Bubble: FC<IProps> = ({ className }) => {
       "https://placehold.jp/50x50.png",
       "https://placehold.jp/50x50.png",
       "https://placehold.jp/50x50.png",
-    ];
+    ]
     if (typeof document !== 'undefined') {
       //配列分のプロフアイコンの表示
       const element: HTMLInputElement = (document.getElementById("img-wrap") as HTMLInputElement)
       for (let i = 0; i < img_array.length; i++) {
         if (element != undefined) {
-          const new_element: HTMLInputElement = (document.createElement("img") as HTMLInputElement);
-          const icon_size = 100 * Math.random();
+          const new_element: HTMLInputElement = (document.createElement("img") as unknown as HTMLInputElement)
+          const icon_size = 100 * Math.random()
           if (icon_size < 30) {
-            new_element.width = 50;
-            new_element.height = 50;
+            new_element.width = 50
+            new_element.height = 50
           } else {
             new_element.width = icon_size
             new_element.height = icon_size
@@ -36,11 +36,11 @@ export const Bubble: FC<IProps> = ({ className }) => {
           const startY = 70 * Math.random()
           //動きのバリエーション
           if (i % 3 == 0) {
-            new_element.style.animationName = "fuwafuwa1";
+            new_element.style.animationName = "fuwafuwa1"
           } else if (i % 3 == 1) {
-            new_element.style.animationName = "fuwafuwa2";
+            new_element.style.animationName = "fuwafuwa2"
           } else if (i % 3 == 2) {
-            new_element.style.animationName = "fuwafuwa3";
+            new_element.style.animationName = "fuwafuwa3"
           }
           new_element.style.top = startX + "%"
           new_element.style.left = startY + "%"

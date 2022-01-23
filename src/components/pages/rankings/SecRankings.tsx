@@ -11,7 +11,6 @@ export const SecRankings: FC = () => {
     (async () => {
       const rankings = await RankingAPI.getUserRanking()
       setRankings(rankings)
-      console.log("##@",rankings)
     })()
   }, [])
 

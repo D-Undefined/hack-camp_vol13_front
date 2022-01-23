@@ -39,7 +39,7 @@ export const SecDiscussion: FC<IProps> = ({className}) => {
  
           {
             trendThreads.map((trendThread,key)=>{
-              return <DiscussionList thread={trendThread} user={user} /> 
+              return <DiscussionList key={key} thread={trendThread} user={user} /> 
             })
           }
         </div>

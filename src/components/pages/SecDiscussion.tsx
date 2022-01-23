@@ -1,17 +1,17 @@
-import { FC,useEffect ,useState} from "react"
-import { ImFire } from "react-icons/im"
-import { AppContainer } from "../layout/AppContainer"
-import { DiscussionList } from "../atoms/discussionList"
-import { TrendThreadAPI }from "@/handler/api/trend"
 import { IThread } from "@/domain/thred"
 import { IUser } from "@/domain/user"
+import { TrendThreadAPI } from "@/handler/api/trend"
 import { userSelector } from "@/redux/selectors/user"
+import { FC, useEffect, useState } from "react"
+import { ImFire } from "react-icons/im"
 import { useSelector } from "react-redux"
+import { DiscussionList } from "../atoms/discussionList"
+import { AppContainer } from "../layout/AppContainer"
 
 
 interface IProps {
   className?: string
-  DiscussionList: IThread[]
+  // DiscussionList: IThread[]
 }
 
 export const SecDiscussion: FC<IProps> = ({className}) => {

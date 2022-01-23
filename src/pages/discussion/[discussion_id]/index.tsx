@@ -7,6 +7,8 @@ import { initThread } from "@/domain/state/thread"
 import { IThread } from "@/domain/thred"
 import { IUser } from "@/domain/user"
 import { ThreadAPI } from "@/handler/api/thread"
+import { VoteAPI } from "@/handler/api/vote"
+import { IGetThreadVoteRes } from "@/interface/handler/api/vote"
 import { userSelector } from "@/redux/selectors/user"
 import { NextPage } from "next"
 import { useRouter } from "next/router"
@@ -18,6 +20,7 @@ const DiscussionPage: NextPage = () => {
   
   const [thread, setThread] = useState<IThread>(initThread)
   const [user, setUser] = useState<IUser>(useSelector(userSelector))
+  const [votedComments, setVotedComments] = useState<IGetThreadVoteRes[]>([])
   const router = useRouter()
   const discussionId = router.query.discussion_id
 
@@ -32,8 +35,11 @@ const DiscussionPage: NextPage = () => {
     return true
   }
 
+  // スレッドをリロード
   const LoadThread = async(discussionId: number) => {
     const thread = await ThreadAPI.getThreadByID({id: `${discussionId}`})
+    const votedComments = await VoteAPI.getThreadComment({uid: user.uid, thread_id: thread.id})
+    setVotedComments(votedComments)
     setThread(thread)
   }
   
@@ -41,15 +47,17 @@ const DiscussionPage: NextPage = () => {
     (async() => {
       const thread = await ThreadAPI.getThreadByID({id: `${discussionId}`})
       setThread(thread)
+      const votedComments = await VoteAPI.getThreadComment({uid: user.uid, thread_id: thread.id})
+      setVotedComments(votedComments)
     })()
-  }, [discussionId, setThread])
+  }, [discussionId, setThread, setVotedComments, user])
 
   return (
     <div className="py-16 min-h-screen bg-fuchsia-50">
       <AppContainer>
         <h1 className="mb-10 text-3xl font-bold">{thread.name}</h1>
         {thread.Comments.map((comment, idx) => (
-          <DiscussionCard key={idx} comment={comment}/>
+          <DiscussionCard key={idx} user={user} comment={comment} LoadThread={LoadThread} votedComments={votedComments}/>
         ))}
         {isFirstVisit(user, thread.Comments) ? <WelcomeBot/> : <span></span>}
         {/* discussionId が正しくセットされているかcheck */}

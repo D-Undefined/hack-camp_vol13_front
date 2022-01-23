@@ -1,15 +1,21 @@
 import { IComment } from "@/domain/comment"
+import { IUser } from "@/domain/user"
 import { fromNow } from "@/handler/utils"
+import { IGetThreadVoteRes } from "@/interface/handler/api/vote"
 import { FC } from "react"
 import { BsChatText } from "react-icons/bs"
 import { Avatar } from "./avatar"
 import { VoteBtn } from "./voteBtn"
+import { VoteBtnDisabled } from "./voteBtnDisabled"
 
 interface IProps  {
-  comment: IComment
+  comment: IComment,
+  user: IUser,
+  LoadThread(discussionId: number): void,
+  votedComments: IGetThreadVoteRes[]
 }
 
-export const DiscussionCard: FC<IProps> = ({comment}) => {
+export const DiscussionCard: FC<IProps> = ({comment, user, LoadThread, votedComments}) => {
   return (
     <div className="flex my-4">
       <div className="mx-4">
@@ -31,7 +37,11 @@ export const DiscussionCard: FC<IProps> = ({comment}) => {
             </div>
           </div>
           <div className="flex items-center">
-            <VoteBtn vote_cnt={comment.vote_cnt}/>
+            {
+              votedComments.some(vc => vc.comment_id === comment.id) 
+              ? <VoteBtnDisabled comment={comment} votedComment={votedComments.find(vc => vc.comment_id === comment.id)}/> 
+              : <VoteBtn user={user} comment={comment} LoadThread={LoadThread}/>
+            }
           </div>
         </span>
       </div>

@@ -3,7 +3,6 @@ import { fromNow } from "@/handler/utils"
 import { useRouter } from "next/router"
 import { FC } from "react"
 import { Avatar } from "./avatar"
-import { VoteBtn } from "./voteBtn"
 
 interface IProps {
   className?: string,
@@ -25,7 +24,7 @@ const router = useRouter()
             最終投稿 {fromNow(thread.created_at)}
           </p>
         </div>
-        <VoteBtn vote_cnt={thread.vote_cnt}/>
+        {/* <VoteBtn vote_cnt={thread.vote_cnt}/> */}
       </div>
     </div>
   )

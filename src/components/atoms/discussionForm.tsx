@@ -34,7 +34,7 @@ export const DiscussionForm: FC<IProps> = ({thread_id, LoadThread}) => {
   return (
     <div className="flex">
       <span className="mx-4">
-        <Avatar/>
+      <Avatar imgSrc={user.image_url}/>
       </span>
       <div className="py-10 px-4 w-full text-lg text-gray-500 bg-white rounded-sm border border-gray-200">
         <textarea

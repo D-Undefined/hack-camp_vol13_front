@@ -3,7 +3,6 @@ import { IUser } from "@/domain/user"
 import { fromNow } from "@/handler/utils"
 import { IGetThreadVoteRes } from "@/interface/handler/api/vote"
 import { FC } from "react"
-import { BsChatText } from "react-icons/bs"
 import { Avatar } from "./avatar"
 import { VoteBtn } from "./voteBtn"
 import { VoteBtnDisabled } from "./voteBtnDisabled"
@@ -19,7 +18,7 @@ export const DiscussionCard: FC<IProps> = ({comment, user, LoadThread, votedComm
   return (
     <div className="flex my-4">
       <div className="mx-4">
-        <Avatar/>
+        <Avatar imgSrc={user.image_url}/>
       </div>
       <div className="py-2 px-4 w-full bg-white rounded border border-gray-200">
         <span className="flex">
@@ -28,9 +27,6 @@ export const DiscussionCard: FC<IProps> = ({comment, user, LoadThread, votedComm
               <p className="text-gray-600">kazuyan</p>
               <span className="px-1 font-bold text-gray-600">  •  </span>
               <p>{fromNow(comment.created_at)}</p>
-              <span className="px-1 font-bold text-gray-600">  •  </span>
-              <BsChatText className="mx-1"/>
-              <p className="cursor-pointer">リプライ</p>
             </span>
             <div className="py-4 text-lg leading-relaxed text-gray-500">
               <p>{comment.body}</p>

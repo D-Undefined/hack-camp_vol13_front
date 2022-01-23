@@ -7,9 +7,8 @@ export const WelcomeBot: FC = () => {
     // TODO メッセージのバリエーション増やす
     const messages = [
       "やぁ！ メッセージを作成してみよう！",
-      "やぁ！ メッセージを作成してみよう！",
-      "やぁ！ メッセージを作成してみよう！",
-      "やぁ！ メッセージを作成してみよう！",
+      "メッセージの投稿はまだじゃない？",
+      "ゆっくりしていってね",
     ]
     const messageIndex = Math.floor(Math.random() * messages.length)
     return messages[messageIndex]
@@ -22,7 +21,7 @@ export const WelcomeBot: FC = () => {
   return(
     <div className="flex my-4">
       <div className="mx-4">
-        <Avatar/>
+        <Avatar imgSrc="https://placehold.jp/100x100.png"/>
       </div>
       <div className="py-2 px-4 w-full bg-yellow-50 rounded border-2 border-yellow-200">
         <span className="flex">

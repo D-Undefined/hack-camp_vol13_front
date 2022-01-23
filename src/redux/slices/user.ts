@@ -7,8 +7,7 @@ const initUserState: IUser = {
   github: "",
   image_url: "",
   bio: "",
-  follow: 0,
-  follower: 0,
+  score: 0,
   belong: "",
   threads: []
 }
@@ -25,6 +24,10 @@ const userSlice = createSlice({
       Object.assign(state, {...action.payload})
       saveToLocalStorage(state)
     },
+    logout: (state) => {
+      Object.assign(state, {...initUserState})
+      saveToLocalStorage(state)
+    }
   }
 })
 
@@ -41,5 +44,5 @@ export const loadUserFromStorage = () => {
 }
 
 
-export const {login} = userSlice.actions
+export const {login, logout} = userSlice.actions
 export default userSlice.reducer

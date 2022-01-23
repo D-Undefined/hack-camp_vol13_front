@@ -1,19 +1,22 @@
+import { Bubble } from "@/components/atoms/bubble"
 import { AppContainer } from "@/components/layout/AppContainer"
+import { IUser } from "@/domain/user"
 import FirebaseAuth from "@/handler/firebase/auth"
-import { login } from "@/redux/slices/user"
+import { userSelector } from "@/redux/selectors/user"
+import { login, logout } from "@/redux/slices/user"
 import Image from "next/image"
 import { useRouter } from "next/router"
-import { FC } from "react"
+import { FC, useState } from "react"
 import { BsGithub } from "react-icons/bs"
 import { MdOutlineDeviceUnknown } from "react-icons/md"
-import { useDispatch } from "react-redux"
-import {Bubble} from "@/components/atoms/bubble"
+import { useDispatch, useSelector } from "react-redux"
 
 interface IProps {
   className?: string
 }
 
 export const SecHero: FC<IProps> = ({className}) => {
+  const [user, setUser] = useState<IUser>(useSelector(userSelector))
   const FBAuth = new FirebaseAuth()
 
   const dispatch = useDispatch()
@@ -25,6 +28,17 @@ export const SecHero: FC<IProps> = ({className}) => {
       dispatch(login(githubUser))
       router.push(`/profile`)
     }
+  }
+
+  // useEffect(() => {
+  //   if(user.uid === "") {
+  //     setUser(user)
+  //   }
+  // }, [user])
+
+  const clickLogout = () => {
+    dispatch(logout())
+    location.reload()
   }
 
   return (
@@ -39,10 +53,19 @@ export const SecHero: FC<IProps> = ({className}) => {
               <p>あなたの今日の疑問は明日の誰かのアイデアへとつながるでしょう。</p>
             </div>
             <div className="py-10 mx-auto w-full">
-              <button onClick={clicked} className="flex justify-center items-center p-3 mx-auto w-52 font-semibold tracking-wider text-white bg-gray-800 rounded-md hover:opacity-80 duration-500 pointer-events-auto">
+              {
+                user.uid === ""
+                ?
+                <button onClick={clicked} className="flex justify-center items-center p-3 mx-auto w-52 font-semibold tracking-wider text-white bg-gray-800 rounded-md hover:opacity-80 duration-500 pointer-events-auto">
+                  <BsGithub className="mr-1"/>
+                  Github でログイン
+                </button>
+                :
+                <button onClick={clickLogout} className="flex justify-center items-center p-3 mx-auto w-52 font-semibold tracking-wider text-gray-600 bg-gray-300 rounded-md hover:opacity-80 duration-500 pointer-events-auto">
                 <BsGithub className="mr-1"/>
-                Github でログイン
-              </button>
+                ログアウト
+              </button>              
+              }
               <button className="flex justify-center items-center p-3 mx-auto mt-6 w-52 font-semibold tracking-wider text-fuchsia-600 hover:text-white bg-white hover:bg-fuchsia-600 rounded-md border-2 border-fuchsia-600 duration-500 pointer-events-auto">
                 <MdOutlineDeviceUnknown className="mr-1"/>
                 匿名で参加する

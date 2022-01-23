@@ -11,7 +11,7 @@ module.exports = {
     return config
   },
   images: {
-    domains: ['placehold.jp'],
+    domains: ['placehold.jp', "avatars.githubusercontent.com"],
   },
   publicRuntimeConfig: {
     // Will be available on both server and client

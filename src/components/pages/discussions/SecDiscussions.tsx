@@ -1,9 +1,12 @@
 import { DiscussionList } from "@/components/atoms/discussionList"
 import { IThread } from "@/domain/thred"
+import { IUser } from "@/domain/user"
 import { ThreadAPI } from "@/handler/api/thread"
+import { userSelector } from "@/redux/selectors/user"
 import { useRouter } from "next/router"
 import { FC, useEffect, useState } from "react"
 import { GoCommentDiscussion } from "react-icons/go"
+import { useSelector } from "react-redux"
 import { AppContainer } from "../../layout/AppContainer"
 
 interface IProps {
@@ -13,6 +16,7 @@ interface IProps {
 export const SecDiscussions: FC<IProps> = ({className}) => {
   const router = useRouter()
   const [threads, setThreads] = useState<IThread[]>([])
+  const [user, setUser] = useState<IUser>(useSelector(userSelector))
 
   // スレッド一覧を取得
   useEffect(() => {
@@ -37,7 +41,7 @@ export const SecDiscussions: FC<IProps> = ({className}) => {
         </div>
         <div className="divide-y">
           {threads.map((thread, key) => (
-            <DiscussionList key={key} thread={thread}/>
+            <DiscussionList key={key} thread={thread} user={user}/>
           ))}
         </div>
       </AppContainer>

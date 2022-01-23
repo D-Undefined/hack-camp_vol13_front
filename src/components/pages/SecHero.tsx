@@ -23,7 +23,7 @@ export const SecHero: FC<IProps> = ({className}) => {
     const githubUser = await FBAuth.githubLogin()
     if (githubUser) {
       dispatch(login(githubUser))
-      router.push(`/profile/${githubUser.uid}`)
+      router.push(`/profile`)
     }
   }
 
@@ -31,7 +31,7 @@ export const SecHero: FC<IProps> = ({className}) => {
     <div className={className}>
       <AppContainer>
         <Bubble></Bubble>
-        <div className="flex pb-16 border-b-2 border-fuchsia-200 pointer-events-none z-10 relative">
+        <div className="flex relative z-10 pb-16 border-b-2 border-fuchsia-200 pointer-events-none">
           <div className="px-10 w-full">
             <h1 className="text-4xl font-bold">Share your Idea.</h1>
             <div className="mt-6 text-lg">

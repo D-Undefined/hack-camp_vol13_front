@@ -7,8 +7,9 @@ export interface IUser {
   github: string,
   image_url: string,
   bio: string,
-  follow: number,
-  follower: number,
+  // follow: number,
+  // follower: number,
   belong: string,
+  score: number,
   threads: IThread[] | null
 }
